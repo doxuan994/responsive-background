@@ -1,0 +1,14 @@
+#ctaTxtWrapper p, #txtIn6 p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2em;
+    margin: 0;
+    text-align: center;
+    line-height: 1;
+    color: white;}
+/*
+Adding content to p.
+----------------------------------------------------------------------------- */
+.firstline::after {
+    content: '';
+    display: inline-block;
+}
