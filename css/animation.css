@@ -134,13 +134,13 @@ Baby baby Children
 Before users typing their emails.
 The Rectangle & input is longer.
 ------------------------------------------------------------------------------*/
-.txtEntryFieldWrapperBefore { width: 540px; }
-.txtEntryFieldBefore        { width: 480px; }
+.txtEntryFieldWrapperBefore { width: 500px; }
+.txtEntryFieldBefore        { width: 440px; }
 
 /*
 After users typing their emails.
 The Rectangle & input is shorter and the SEND button is shown.
 ------------------------------------------------------------------------------*/
-.txtEntryFieldWrapper   { width: 435px; margin-right: 5px; }
-.txtEntryField          { width: 375px; }
+.txtEntryFieldWrapper   { width: 395px; margin-right: 5px; }
+.txtEntryField          { width: 335px; }
 #sendBtn                { width: 100px;  }
