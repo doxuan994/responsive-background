@@ -1,3 +1,14 @@
+/**
+* Correct the inability to style clickable types in iOS and Safari.
+*/
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+}
+
 input { padding: 0; border: 0; }
 input[type=text] {
     color: rgba(255, 255, 255, 0.5);
