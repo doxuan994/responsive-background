@@ -1,9 +1,5 @@
 <svg width="360" height="640" viewBox="0 0 360 640" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="360" height="640" fill="#02B2FD"/>
-<path d="M360 0H0V640H360V0Z" fill="#01B4FD"/>
-<path opacity="0.1" d="M360.1 1.29999H0.0996094V105.5H360.1V1.29999Z" fill="#E5EDEF"/>
-<path opacity="0.1" d="M360 118.8H0V138.3H360V118.8Z" fill="#E5EDEF"/>
-<path opacity="0.1" d="M360 157.5H0V167.2H360V157.5Z" fill="#E5EDEF"/>
 <path d="M359.8 444.8H0.200195V642.3H359.8V444.8Z" fill="#00A3FB"/>
 <path d="M360 496.7H0V642.2H360V496.7Z" fill="#009AF9"/>
 <path d="M360 475.1H0V484.8H360V475.1Z" fill="#009AF9"/>

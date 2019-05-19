@@ -1,5 +1,6 @@
 html, body {
     height: 100%;
+    width: 100%;
     background: #01B4FD;
     margin: 0;
     padding: 0;
@@ -14,11 +15,18 @@ html, body {
     background-position: center center;
     background-size: cover;
     height: 100%;
+    width: 100%;
+}
+
+
+.skyline {
+    width: 100%;
+    display: none;
 }
 
 
 .logo {
-    position: relative;
+    position: absolute;
 }
 
 .logo {
@@ -63,31 +71,13 @@ Mobile Portrait
     .site {
         background-image: url("../images/MobileBackground.svg");
     }
-    .logo {
-        width: 40px;
-
-        top: 5px;
-        left: 5px;
+    .skyline {
+        display: block;
     }
-}
-
-/* ----------- iPhone 4 and 4S ----------- */
-@media only screen and (max-width: 400px) and (orientation: portrait) {
     .logo {
-        width: 30px;
+        width: 4em;
 
-        top: 5px;
-        left: 5px;
-    }
-}
-
-
-/* ----------- iPhone 4 and 4S ----------- */
-@media only screen and (max-width: 320px) and (orientation: portrait) {
-    .logo {
-        width: 30px;
-
-        top: 5px;
-        left: 5px;
+        top: 1em;
+        left: 1em;
     }
 }
