@@ -34,37 +34,37 @@
 
 @media only screen and (max-width: 480px) and (orientation: portrait) {
     .NoBorderLArm {
-        max-width: 28.22px;
+        max-width: 35.5px;
         margin-right: 0;
         margin-left: 0;
     }
     .NoBorderHead {
-        max-width: 51.87px;
+        max-width: 78px;
         margin-right: 0;
         margin-left: 0;
     }
     .NoBorderRLeg {
-        max-width: 13.97px;
+        max-width: 14.5px;
         margin-right: 0;
         margin-left: 0;
     }
     .NoBorderRArm {
-        max-width: 23.6px;
+        max-width: 32.5px;
         margin-right: 8px;
         margin-left: 8px;
     }
     .NoBorderBattery {
-        max-width: 12.47px;
+        max-width: 13px;
         margin-right: 12px;
         margin-left: 0;
     }
     .NoBorderBODY {
-        max-width: 26.78px;
+        max-width: 32.5px;
         margin-right: 6px;
         margin-left: 0;
     }
     .NoBorderLLeg {
-        max-width: 13.97px;
+        max-width: 24px;
         margin-right: 0;
         margin-left: 0;
     }
@@ -76,5 +76,5 @@
         max-width: 69px;
     }
 
-    
+
 }
