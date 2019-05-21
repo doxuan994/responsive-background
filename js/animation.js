@@ -108,6 +108,11 @@ function showBtn() {
     }
 }
 
+function hideBtn() {
+    let ctaBtn = document.getElementById('ctaBtn');
+    ctaBtn.style.display = 'none';
+}
+
 
 /*******************************************************************************
 * This is used for the onclick ctaBtn event.
@@ -176,7 +181,45 @@ function userTypeEmail() {
 txtAppear();
 
 // Number 3 or number 7
-showBtn();
+/*
+            Handle for changing between big and mobile screen.
+------------------------------------------------------------------------------*/
+let windowInnerWidth = window.innerWidth;
+if (windowInnerWidth > 480) {
+    showBtn();
+} else {
+    hideBtn();
+}
+
+// window.resize callback function.
+function getDimensionsAndShoworHighBtn() {
+    windowInnerWidth = window.innerWidth;
+
+    if (windowInnerWidth > 480) {
+        showBtn();
+    } else {
+        hideBtn();
+    }
+}
+
+
+
+// Debouncing.
+// Function will only be called once the resizing is “complete.”
+let timeOut = false;
+window.addEventListener('resize', function() {
+    // Clear the time out.
+    clearTimeout(timeOut);
+
+    // Start timing for event "completion".
+    timeOut = setTimeout(getDimensionsAndShoworHighBtn, 250);
+});
+
+
+
+
+
+
 
 // Submit form handling.
 let emailForm = document.getElementById('emailForm');
