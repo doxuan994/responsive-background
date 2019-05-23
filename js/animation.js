@@ -192,7 +192,7 @@ if (windowInnerWidth > 480) {
 }
 
 // window.resize callback function.
-function getDimensionsAndShoworHighBtn() {
+function getDimensionsAndShoworHideBtn() {
     windowInnerWidth = window.innerWidth;
 
     if (windowInnerWidth > 480) {
@@ -212,7 +212,7 @@ window.addEventListener('resize', function() {
     clearTimeout(timeOut);
 
     // Start timing for event "completion".
-    timeOut = setTimeout(getDimensionsAndShoworHighBtn, 250);
+    timeOut = setTimeout(getDimensionsAndShoworHideBtn, 250);
 });
 
 
