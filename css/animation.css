@@ -153,6 +153,21 @@ The Rectangle & input is shorter and the SEND button is shown.
 
 
 /*
+Mobile Landscape
+----------------------------------------------------------------------------- */
+
+@media only screen and (max-width: 820px) and (max-height: 420px) and  (orientation: landscape) {
+
+    #ctaBtn {
+        font-size: 0.5em;
+    }
+
+    /* #sendBtn { width: 80px; font-size: 0.8em; margin: 0 auto; } */
+}
+
+
+
+/*
 Mobile Portrait
 ------------------------------------------------------------------------------*/
 
@@ -185,5 +200,4 @@ Mobile Portrait
         margin-bottom: -20px;
         margin-top: 10px;
     }
-
 }
