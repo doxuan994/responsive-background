@@ -177,6 +177,26 @@ function userTypeEmail() {
 *                          JavaScript FUNCTION CALLS
 *
 *******************************************************************************/
+
+// Submit form handling.
+let emailForm = document.getElementById('emailForm');
+emailForm.addEventListener('submit', function() {
+    if (typeof(localStorage.sent) == "undefined") {
+        localStorage.sent = 1;
+
+        let value = localStorage.sent;
+        setCookies('sent', value);
+    } else {
+        localStorage.sent++
+
+        let value = localStorage.sent;
+        setCookies('sent', value);
+    }
+}, false);
+
+
+
+
 // Number 2 or number 6
 txtAppear();
 
@@ -203,6 +223,14 @@ function getDimensionsAndShoworHideBtn() {
 }
 
 
+// Number 4
+formAppear();
+
+// Number 5
+userTypeEmail();
+
+
+
 
 // Debouncing.
 // Function will only be called once the resizing is “complete.”
@@ -214,32 +242,3 @@ window.addEventListener('resize', function() {
     // Start timing for event "completion".
     timeOut = setTimeout(getDimensionsAndShoworHideBtn, 250);
 });
-
-
-
-
-
-
-
-// Submit form handling.
-let emailForm = document.getElementById('emailForm');
-emailForm.addEventListener('submit', function() {
-    if (typeof(localStorage.sent) == "undefined") {
-        localStorage.sent = 1;
-
-        let value = localStorage.sent;
-        setCookies('sent', value);
-    } else {
-        localStorage.sent++
-
-        let value = localStorage.sent;
-        setCookies('sent', value);
-    }
-}, false);
-
-
-// Number 4
-formAppear();
-
-// Number 5
-userTypeEmail();
