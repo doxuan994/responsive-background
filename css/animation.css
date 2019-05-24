@@ -34,6 +34,13 @@ The CTA button also fades out.
     }
 }
 
+.btnChangeColorandTxt {
+    display: block;
+    background-color: #108AF3;
+}
+
+
+
 
 #ctaTxtWrapper {
     position: absolute;
@@ -195,4 +202,13 @@ Mobile Portrait
         margin-bottom: -20px;
         margin-top: 10px;
     }
+
+
+
+
+
+    .emailFormMobile {
+        display: block;
+    }
+
 }

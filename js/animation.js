@@ -95,9 +95,7 @@ function btnChangeColorandTxt() {
 
     let ctaBtn = document.getElementById('ctaBtn');
     ctaBtn.innerText = 'Re-send form';
-    ctaBtn.style.display = 'block';
-    ctaBtn.style.backgroundColor = '#108AF3';
-
+    ctaBtn.classList.add('btnChangeColorandTxt');
 }
 
 function showBtn() {
@@ -139,7 +137,7 @@ function showForm() {
         ctaBtnWrapper.classList.add('fadeOut');
         txtIn6.classList.add('fadeOut');
 
-        emailForm.style.display = 'flex';
+        emailForm.classList.remove('emailFormMobile');
     }, false);
 }
 
@@ -148,8 +146,7 @@ function showFormMobile() {
     let sendBtn     = document.getElementById('sendBtn');
 
 
-    emailForm.style.display = 'block';
-    sendBtn.style.display = 'block';
+    emailForm.classList.add('emailFormMobile');
 }
 
 
@@ -177,15 +174,15 @@ function userTypeEmail() {
     let txtEntryFieldWrapper = document.getElementById('txtEntryFieldWrapper');
     let txtEntryField = document.getElementById('txtEntryField');
     let sendBtn = document.getElementById('sendBtn');
+
+
     txtEntryField.addEventListener('keyup', function() {
         if (txtEntryField.value !== "") {
             txtEntryFieldWrapper.classList.add('txtEntryFieldWrapper');
             txtEntryField.classList.add('txtEntryField');
-            sendBtn.style.display = 'block';
         } else {
             txtEntryFieldWrapper.classList.remove('txtEntryFieldWrapper');
             txtEntryField.classList.remove('txtEntryField');
-            sendBtn.style.display = 'none';
         }
     }, false);
 }
@@ -270,6 +267,16 @@ function showFormBasedOnScreenSize() {
 }
 
 
+// Number 5
+function userTypeEmailBasedOnScreenSize() {
+    windowInnerWidth = window.innerWidth;
+
+    if (windowInnerWidth > 480) {
+        userTypeEmail();
+    }
+}
+
+
 // Debouncing.
 // Function will only be called once the resizing is “complete.”
 let timeOut = false;
@@ -295,17 +302,13 @@ window.addEventListener('resize', function() {
 
 
 
+// Debouncing.
+// Function will only be called once the resizing is “complete.”
+let timeOut3 = false;
+window.addEventListener('resize', function() {
+    // Clear the time out.
+    clearTimeout(timeOut3);
 
-
-
-
-
-
-
-
-
-
-
-
-// Number 5
-userTypeEmail();
+    // Start timing for event "completion".
+    timeOut3 = setTimeout(userTypeEmailBasedOnScreenSize, 250);
+});
