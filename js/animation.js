@@ -188,13 +188,14 @@ function userTypeEmail() {
             txtEntryField.classList.add('txtEntryField');
 
             // Add send button when users type nothing.
-
-
+            sendBtn.classList.add('sendBtn');
+            
         } else {
             txtEntryFieldWrapper.classList.remove('txtEntryFieldWrapper');
             txtEntryField.classList.remove('txtEntryField');
 
             // Remove send button when users start typing.
+            sendBtn.classList.remove('sendBtn');
 
         }
     }, false);

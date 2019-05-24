@@ -177,6 +177,8 @@ The CTA button also fades out.
 .emailForm     { display: flex; }
 
 /* After the user types their email, the send button appears below the text entry field, to the right. */
+.sendBtnInit    { display: none; }
+.sendBtn        { display: block; }
 
 
 /* -----------------------------------------------------------------------------
@@ -185,8 +187,10 @@ The CTA button also fades out.
 
 @media only screen and (max-width: 480px) and (orientation: portrait) {
     /* OnClick of the CTA button and form will show. */
-    .emailFormInit  { display: block; }
+    .emailFormInit      { display: block; }
 
     /* OnClick of the CTA button and form will show. */
-    .emailFormMobile { display: block; }
+    .emailFormMobile    { display: block; }
+
+    .sendBtnInitMobile { display: block;}
 }
