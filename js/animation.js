@@ -85,7 +85,8 @@ function btnAppear() {
     // Button animates to view 0.25s after CTA text animation is complete
     // Run the addCtaBtn function after 0.25s delay.
     let ctaBtn = document.getElementById('ctaBtn');
-    ctaBtn.style.display = 'block';
+    console.log('Added ctaBtn');
+    ctaBtn.classList.add('ctaBtn');
 }
 
 function btnChangeColorandTxt() {
@@ -108,7 +109,8 @@ function showBtn() {
 
 function hideBtn() {
     let ctaBtn = document.getElementById('ctaBtn');
-    ctaBtn.style.display = 'none';
+    console.log('Remove ctaBtn');
+    ctaBtn.classList.remove('ctaBtn');
 }
 
 
@@ -138,6 +140,8 @@ function showForm() {
         txtIn6.classList.add('fadeOut');
 
         emailForm.classList.remove('emailFormMobile');
+        emailForm.classList.add('emailForm');
+
     }, false);
 }
 
@@ -145,7 +149,7 @@ function showFormMobile() {
     let emailForm   = document.getElementById('emailForm');
     let sendBtn     = document.getElementById('sendBtn');
 
-
+    emailForm.classList.remove('emailForm');
     emailForm.classList.add('emailFormMobile');
 }
 
@@ -178,11 +182,20 @@ function userTypeEmail() {
 
     txtEntryField.addEventListener('keyup', function() {
         if (txtEntryField.value !== "") {
+
+            // Apply new styling for text entry field when users enter something.
             txtEntryFieldWrapper.classList.add('txtEntryFieldWrapper');
             txtEntryField.classList.add('txtEntryField');
+
+            // Add send button when users type nothing.
+
+
         } else {
             txtEntryFieldWrapper.classList.remove('txtEntryFieldWrapper');
             txtEntryField.classList.remove('txtEntryField');
+
+            // Remove send button when users start typing.
+
         }
     }, false);
 }
@@ -234,9 +247,13 @@ let windowInnerWidth = window.innerWidth;
 if (windowInnerWidth > 480) {
     showBtn();
     showForm();
+    userTypeEmail();
+
+    console.log('Init Desktop ' + windowInnerWidth);
 } else {
     hideBtn();
     showFormMobile();
+    console.log('Init Mobile ' + windowInnerWidth);
 }
 
 
@@ -250,8 +267,10 @@ function showOrHideBtn() {
 
     if (windowInnerWidth > 480) {
         showBtn();
+        console.log('Resize Desktop '  + windowInnerWidth);
     } else {
         hideBtn();
+        console.log('Resize Mobile ' + windowInnerWidth);
     }
 }
 

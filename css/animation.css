@@ -18,6 +18,132 @@ textarea:focus, input:focus {
 }
 
 /*
+                                    Styling
+------------------------------------------------------------------------------*/
+#ctaTxtWrapper {
+    position: absolute;
+    bottom: 15%;
+
+    left: 0;
+    right: 0;
+}
+
+#ctaBtnWrapper {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#emailForm {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%);
+    justify-content: center;
+}
+
+#txtIn6 {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*
+Baby Children
+----------------------------------------------------------------------------- */
+#ctaBtn {
+    background-color: #7F1BCE;
+    color: white;
+    border: 0px;
+    border-radius: 50px;
+    padding: 0.7em 2em;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/* The rectangle background with a round border at the corner. */
+#txtEntryFieldWrapper {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 40px;
+    padding: 0.7em 0px;
+}
+
+#sendBtn {
+    background-color: #7F1BCE;
+    color: white;
+    border-radius: 40px;
+    padding: 0.7em 0px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/*
+Baby baby Children
+----------------------------------------------------------------------------- */
+/* The actually input text that users enter their emails. */
+#txtEntryField {
+    background-color: rgba(255, 255, 255, 0);
+    margin-left: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+}
+#txtEntryField::placeholder { color: rgba(255, 255, 255, 0.5); }
+
+
+/* -----------------------------------------------------------------------------
+                            Mobile Landscape
+----------------------------------------------------------------------------- */
+
+@media only screen and (max-width: 820px) and (max-height: 420px) and  (orientation: landscape) {
+    #ctaTxtWrapper { bottom: 18%; }
+    #ctaBtnWrapper { bottom: 3%; }
+}
+
+/*
+Before users typing their emails.
+The Rectangle & input is longer.
+------------------------------------------------------------------------------*/
+.txtEntryFieldWrapperBefore { width: 500px; }
+.txtEntryFieldBefore        { width: 440px; }
+
+/*
+After users typing their emails.
+The Rectangle & input is shorter and the SEND button is shown.
+------------------------------------------------------------------------------*/
+.txtEntryFieldWrapper   { width: 395px; margin-right: 5px; }
+.txtEntryField          { width: 335px; }
+#sendBtn                { width: 100px; }
+
+
+
+/* -----------------------------------------------------------------------------
+                            Mobile Portrait
+------------------------------------------------------------------------------*/
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+    #ctaTxtWrapper { bottom: 18%; }
+    #txtEntryField { margin-left: 20px; }
+
+    .txtEntryFieldWrapperMobile { width: 320px; }
+    .txtEntryFieldMobile        { width: 280px; }
+
+    #txtEntryFieldWrapper       { padding: 0.4em 0; }
+    #sendBtn                    { width: 80px; font-size: 0.8em; margin: 0 auto; }
+    #sendBtn                    { margin-bottom: -20px; margin-top: 10px; }
+}
+
+
+
+
+/* -----------------------------------------------------------------------------
+
+                BEFORE & AFTER ANIMATIONS OR CLICK EVENTS
+
+----------------------------------------------------------------------------- */
+/*
 OnClick of the CTA button styling.
 The CTA text fades out.
 The CTA button also fades out.
@@ -41,174 +167,26 @@ The CTA button also fades out.
 
 
 
-
-#ctaTxtWrapper {
-    position: absolute;
-    bottom: 15%;
-
-    left: 0;
-    right: 0;
-}
-
-#ctaBtnWrapper {
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#emailForm {
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translate(-50%);
-    display: flex;
-    justify-content: center;
-}
-
-#txtIn6 {
-    position: absolute;
-    bottom: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/*
-Baby Children
------------------------------------------------------------------------------ */
-#ctaBtn {
-    background-color: #7F1BCE;
-    color: white;
-    border: 0px;
-    border-radius: 50px;
-    padding: 0.7em 2em;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1em;
-    font-weight: bold;
-
-}
-
-/* The rectangle background with a round border at the corner. */
-#txtEntryFieldWrapper {
-    background-color: rgba(255, 255, 255, 0.25);
-    border-radius: 40px;
-    padding: 0.7em 0px;
-}
-
-#sendBtn {
-    background-color: #7F1BCE;
-    color: white;
-    border-radius: 40px;
-    padding: 0.7em 0px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1em;
-    font-weight: bold;
-}
+/* Button animates to view 0.25s after CTA text animation is complete. */
+.ctaBtnInit     { display: none; }
+.ctaBtn         { display: block; }
 
 
+/* OnClick of the CTA button and form will show. */
+.emailFormInit { display: none; }
+.emailForm     { display: flex; }
 
-
-/*
-Baby baby Children
------------------------------------------------------------------------------ */
-/* The actually input text that users enter their emails. */
-#txtEntryField {
-    background-color: rgba(255, 255, 255, 0);
-    margin-left: 30px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1em;
-}
-#txtEntryField::placeholder { color: rgba(255, 255, 255, 0.5); }
-
-
-
+/* After the user types their email, the send button appears below the text entry field, to the right. */
 
 
 /* -----------------------------------------------------------------------------
-
-                        BEFORE & AFTER ANIMATIONS
-
+                            Mobile Portrait
 ----------------------------------------------------------------------------- */
-
-
-/* Button animates to view 0.25s after CTA text animation is complete. */
-#ctaBtn     { display: none; }
-
-/* OnClick of the CTA button and form will show. */
-#emailForm  { display: none; }
-
-/* After the user types their email, the send button appears below the text entry field, to the right */
-#sendBtn    { display: none; }
-
-/*
-Before users typing their emails.
-The Rectangle & input is longer.
-------------------------------------------------------------------------------*/
-.txtEntryFieldWrapperBefore { width: 500px; }
-.txtEntryFieldBefore        { width: 440px; }
-
-/*
-After users typing their emails.
-The Rectangle & input is shorter and the SEND button is shown.
-------------------------------------------------------------------------------*/
-.txtEntryFieldWrapper   { width: 395px; margin-right: 5px; }
-.txtEntryField          { width: 335px; }
-#sendBtn                { width: 100px;  }
-
-
-
-
-/*
-Mobile Landscape
------------------------------------------------------------------------------ */
-
-@media only screen and (max-width: 820px) and (max-height: 420px) and  (orientation: landscape) {
-    #ctaTxtWrapper { bottom: 18%; }
-    #ctaBtnWrapper { bottom: 3%; }
-}
-
-
-
-/*
-Mobile Portrait
-------------------------------------------------------------------------------*/
 
 @media only screen and (max-width: 480px) and (orientation: portrait) {
+    /* OnClick of the CTA button and form will show. */
+    .emailFormInit  { display: block; }
 
     /* OnClick of the CTA button and form will show. */
-    #emailForm  { display: block; }
-
-    /* After the user types their email, the send button appears below the text entry field, to the right */
-    #sendBtn    { display: block; }
-
-    #ctaTxtWrapper {
-        bottom: 18%;
-    }
-
-    #txtEntryField {
-        margin-left: 20px;
-    }
-
-    .txtEntryFieldWrapperMobile { width: 320px; }
-    .txtEntryFieldMobile        { width: 280px; }
-
-    #txtEntryFieldWrapper       { padding: 0.4em 0; }
-    #sendBtn                    { width: 80px; font-size: 0.8em; margin: 0 auto; }
-
-    #txtEntryFieldWrapper {
-
-    }
-    #sendBtn {
-        margin-bottom: -20px;
-        margin-top: 10px;
-    }
-
-
-
-
-
-    .emailFormMobile {
-        display: block;
-    }
-
+    .emailFormMobile { display: block; }
 }
