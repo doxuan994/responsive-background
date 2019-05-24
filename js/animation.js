@@ -133,12 +133,23 @@ function showCtaTxt() {
 
 
 
+
+
+
+
+
+
+
 /*******************************************************************************
 *
 * Button animates to view 0.25s after CTA text animation is complete.
 *
-******************************************************************************/
-function btnAppear() {
+*******************************************************************************/
+
+
+
+
+function displayCtaBtnBeforeSubmitEmail() {
     // Number 3
     // Animated CTA button below CTA text.
     // Button animates to view 0.25s after CTA text animation is complete
@@ -147,8 +158,7 @@ function btnAppear() {
     console.log('Added ctaBtn');
     ctaBtn.classList.add('ctaBtn');
 }
-
-function btnChangeColorandInnerTxt() {
+function displayCtaBtnAfterSubmitEmail() {
     // Number 7
     // About 1s after the text in 6 appears,
     // the link with text ‘re-send form’, appears below the text.
@@ -158,15 +168,18 @@ function btnChangeColorandInnerTxt() {
     ctaBtn.classList.add('ctaBtnAfter');
 }
 
-function showBtn() {
+
+// Show CTA button only on desktop screen.
+function showCtaBtn() {
     if (getCookie('sent') >= 1) {
-        setTimeout(btnChangeColorandInnerTxt, 4600);
+        setTimeout(displayCtaBtnAfterSubmitEmail, 4600);
     } else {
-        setTimeout(btnAppear, 4250);
+        setTimeout(displayCtaBtnBeforeSubmitEmail, 4250);
     }
 }
 
-function hideBtn() {
+// Hide CTA button on the mobile screen.
+function hideCtaBtn() {
     let ctaBtn = document.getElementById('ctaBtn');
     console.log('Remove ctaBtn');
     ctaBtn.classList.remove('ctaBtn');
@@ -339,13 +352,13 @@ showCtaTxt();
 // Number 3 or number 7
 let windowInnerWidth = window.innerWidth;
 if (windowInnerWidth > 480) {
-    showBtn();
+    showCtaBtn();
     showForm();
     userTypeEmail();
 
     console.log('Init Desktop ' + windowInnerWidth);
 } else {
-    hideBtn();
+    hideCtaBtn();
     showFormMobile();
     console.log('Init Mobile ' + windowInnerWidth);
 }
@@ -363,16 +376,16 @@ window.addEventListener('resize', function() {
 
     // Start timing for event "completion".
     resetTimeOut = setTimeout(function() {
-        // window.resize callback functions.
+        // The window.resize callback function.
         // Debouncing.
-        // Functions will only be called once the resizing is “complete.”
+        // The function will only be called once the resizing is “complete.”
         windowInnerWidth = window.innerWidth;
         if (windowInnerWidth > 480) {
             console.log("Reset!");
             reset();
 
             console.log('Resize Desktop '  + windowInnerWidth);
-            showBtn();
+            showCtaBtn();
 
             console.log('Show form desktop!');
             showForm();
@@ -381,7 +394,7 @@ window.addEventListener('resize', function() {
 
         } else {
             console.log('Resize Mobile ' + windowInnerWidth);
-            hideBtn();
+            hideCtaBtn();
 
             console.log('Show form mobile!');
             showFormMobile();
