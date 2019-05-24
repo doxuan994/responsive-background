@@ -160,7 +160,7 @@ The CTA button also fades out.
     }
 }
 
-.btnChangeColorandTxt {
+.ctaBtnAfter {
     display: block;
     background-color: #108AF3;
 }

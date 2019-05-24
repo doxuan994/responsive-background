@@ -12,15 +12,23 @@
 function reset() {
 
     // CTA Txt.
-    let ctaTxtWrapper = document.getElementById('ctaTxtWrapper');
+    let ctaTxtWrapper   = document.getElementById('ctaTxtWrapper');
+
+    // Text in number 6.
+    let txtIn6          = document.getElementById('txtIn6');
 
     // CTA Button.
-    let ctaBtnWrapper = document.getElementById('ctaBtnWrapper');
+    let ctaBtnWrapper   = document.getElementById('ctaBtnWrapper');
 
 
     // Remove the fadeOut class from CTA Txt.
     if (ctaTxtWrapper.classList.contains('fadeOut')) {
         ctaTxtWrapper.classList.remove('fadeOut');
+    }
+
+    // Remove the fadeOut class from text in number 6.
+    if (txtIn6.classList.contains('fadeOut')) {
+        txtIn6.classList.remove('fadeOut');
     }
 
     // Remove the fadeOut class from the CTA Button.
@@ -77,6 +85,28 @@ function typeWriter(id, inputArray, elementIndex) {
 
 /*******************************************************************************
 *
+* cookies handling
+*
+******************************************************************************/
+function setCookies(cname, value) { document.cookie = cname + "=" + value; }
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+/*******************************************************************************
+*
 * It depends on the cookie,
 * CTA text will show or
 * the text in number 6 shows.
@@ -101,27 +131,7 @@ function showCtaTxt() {
     }
 }
 
-/*******************************************************************************
-*
-* cookies handling
-*
-******************************************************************************/
-function setCookies(cname, value) { document.cookie = cname + "=" + value; }
-function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
+
 
 /*******************************************************************************
 *
@@ -138,19 +148,19 @@ function btnAppear() {
     ctaBtn.classList.add('ctaBtn');
 }
 
-function btnChangeColorandTxt() {
+function btnChangeColorandInnerTxt() {
     // Number 7
     // About 1s after the text in 6 appears,
     // the link with text ‘re-send form’, appears below the text.
 
     let ctaBtn = document.getElementById('ctaBtn');
     ctaBtn.innerText = 'Re-send form';
-    ctaBtn.classList.add('btnChangeColorandTxt');
+    ctaBtn.classList.add('ctaBtnAfter');
 }
 
 function showBtn() {
     if (getCookie('sent') >= 1) {
-        setTimeout(btnChangeColorandTxt, 4600);
+        setTimeout(btnChangeColorandInnerTxt, 4600);
     } else {
         setTimeout(btnAppear, 4250);
     }
@@ -163,8 +173,11 @@ function hideBtn() {
 }
 
 
+
+
+
 /*******************************************************************************
-* This is used for the onclick ctaBtn event.
+* This is used for the onclick ctaBtn event on the desktop screen.
 * When users click on the CTA button.
 * The CTA text fades out (Text in 6 also fade outs if users hit the Re-send form).
 * The CTA button is also faded out.
@@ -183,13 +196,17 @@ function showForm() {
     // users on click CTA button.
     ctaBtnWrapper.addEventListener('click', function() {
 
-        // Add fade out class to CTA text and button.
+        // Add fade out class to CTA text.
         ctaTxtWrapper.classList.add('fadeOut');
-        ctaBtnWrapper.classList.add('fadeOut');
-
         // If users submitted the form,
         // then text in number 6 will be removed instead of CTA text.
         txtIn6.classList.add('fadeOut');
+
+
+        // Add fade out class to CTA button.
+        ctaBtnWrapper.classList.add('fadeOut');
+
+
 
         // Show form in desktop styling and remove the form class for mobile.
         emailForm.classList.remove('emailFormMobile');
@@ -198,6 +215,13 @@ function showForm() {
     }, false);
 }
 
+
+/*------------------------------------------------------------------------------
+Show form on mobile screen.
+Form appears without clicking on the CTA button.
+
+Also, remove the form styling on desktop and add styling for mobile screen.
+------------------------------------------------------------------------------*/
 function showFormMobile() {
     let emailForm   = document.getElementById('emailForm');
     let sendBtn     = document.getElementById('sendBtn');
@@ -284,17 +308,26 @@ emailForm.addEventListener('submit', function() {
 }, false);
 
 
-/*------------------------------------------------------------------------------
-Animation calls
-------------------------------------------------------------------------------*/
+
+
+
+
+/*******************************************************************************
+
+                    ANIMATIONS USING JAVASCRIPT
+
+                            FUNCTION CALLS
+*******************************************************************************/
 
 // Number 2 or number 6
 showCtaTxt();
 
 
 
-/*
-Handle for changing between big and mobile screen.
+/*------------------------------------------------------------------------------
+
+            Handle for changing between big and mobile screen.
+
 ------------------------------------------------------------------------------*/
 
 
@@ -320,7 +353,7 @@ if (windowInnerWidth > 480) {
 
 
 // -----------------------------------------------------------------------------
-// Functions will work on window resize.
+// Functions will be called again on window resize.
 // -----------------------------------------------------------------------------
 
 let resetTimeOut = false;
