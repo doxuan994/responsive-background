@@ -82,7 +82,7 @@ function typeWriter(id, inputArray, elementIndex) {
 * the text in number 6 shows.
 *
 ******************************************************************************/
-function txtAppear() {
+function showCtaTxt() {
     let emailForm = document.getElementById('emailForm');
 
     // Number 6
@@ -175,19 +175,23 @@ function showForm() {
     let ctaTxtWrapper   = document.getElementById('ctaTxtWrapper');
     let txtIn6          = document.getElementById('txtIn6');
     let ctaBtnWrapper   = document.getElementById('ctaBtnWrapper');
-    let ctaBtn          = document.getElementById('ctaBtn');
-
     let emailForm       = document.getElementById('emailForm');
 
 
 
     // Initially, form are not shown, so show it for the first time When
     // users on click CTA button.
-    ctaBtn.addEventListener('click', function() {
+    ctaBtnWrapper.addEventListener('click', function() {
+
+        // Add fade out class to CTA text and button.
         ctaTxtWrapper.classList.add('fadeOut');
         ctaBtnWrapper.classList.add('fadeOut');
+
+        // If users submitted the form,
+        // then text in number 6 will be removed instead of CTA text.
         txtIn6.classList.add('fadeOut');
 
+        // Show form in desktop styling and remove the form class for mobile.
         emailForm.classList.remove('emailFormMobile');
         emailForm.classList.add('emailForm');
 
@@ -285,7 +289,7 @@ Animation calls
 ------------------------------------------------------------------------------*/
 
 // Number 2 or number 6
-txtAppear();
+showCtaTxt();
 
 
 
@@ -343,13 +347,11 @@ window.addEventListener('resize', function() {
             userTypeEmail();
 
         } else {
-
             console.log('Resize Mobile ' + windowInnerWidth);
             hideBtn();
 
             console.log('Show form mobile!');
             showFormMobile();
-
         }
     }, 250);
 });
