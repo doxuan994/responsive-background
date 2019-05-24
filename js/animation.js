@@ -122,7 +122,7 @@ function hideBtn() {
 *
 * Then the form will be displayed.
 ******************************************************************************/
-function formAppear() {
+function showForm() {
     let ctaTxtWrapper   = document.getElementById('ctaTxtWrapper');
     let txtIn6          = document.getElementById('txtIn6');
     let ctaBtnWrapper   = document.getElementById('ctaBtnWrapper');
@@ -141,8 +141,33 @@ function formAppear() {
 
         emailForm.style.display = 'flex';
     }, false);
-
 }
+
+function showFormMobile() {
+    let emailForm   = document.getElementById('emailForm');
+    let sendBtn     = document.getElementById('sendBtn');
+
+
+    emailForm.style.display = 'block';
+    sendBtn.style.display = 'block';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*******************************************************************************
  * After the user types their email,
@@ -195,24 +220,35 @@ emailForm.addEventListener('submit', function() {
 }, false);
 
 
-
+/*------------------------------------------------------------------------------
+                            Animation calls
+------------------------------------------------------------------------------*/
 
 // Number 2 or number 6
 txtAppear();
 
-// Number 3 or number 7
+
+
 /*
             Handle for changing between big and mobile screen.
 ------------------------------------------------------------------------------*/
+// Number 3 or number 7
 let windowInnerWidth = window.innerWidth;
 if (windowInnerWidth > 480) {
     showBtn();
+    showForm();
 } else {
     hideBtn();
+    showFormMobile();
 }
 
-// window.resize callback function.
-function getDimensionsAndShoworHideBtn() {
+
+
+// -----------------------------------------------------------------------------
+// window.resize callback functions.
+// -----------------------------------------------------------------------------
+// Number 3 or number 7
+function showOrHideBtn() {
     windowInnerWidth = window.innerWidth;
 
     if (windowInnerWidth > 480) {
@@ -222,14 +258,16 @@ function getDimensionsAndShoworHideBtn() {
     }
 }
 
-
 // Number 4
-formAppear();
+function showFormBasedOnScreenSize() {
+    windowInnerWidth = window.innerWidth;
 
-// Number 5
-userTypeEmail();
-
-
+    if (windowInnerWidth > 480) {
+        showForm();
+    } else {
+        showFormMobile();
+    }
+}
 
 
 // Debouncing.
@@ -240,5 +278,34 @@ window.addEventListener('resize', function() {
     clearTimeout(timeOut);
 
     // Start timing for event "completion".
-    timeOut = setTimeout(getDimensionsAndShoworHideBtn, 250);
+    timeOut = setTimeout(showOrHideBtn, 250);
 });
+
+
+// Debouncing.
+// Function will only be called once the resizing is “complete.”
+let timeOut2 = false;
+window.addEventListener('resize', function() {
+    // Clear the time out.
+    clearTimeout(timeOut2);
+
+    // Start timing for event "completion".
+    timeOut2 = setTimeout(showFormBasedOnScreenSize, 250);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Number 5
+userTypeEmail();
