@@ -3,6 +3,55 @@
 *                               FUNCTIONS
 *
 *******************************************************************************/
+
+
+
+// If users change from landscape to portrait and
+// then portrait to landscape.
+// Reset all the effect again.
+function reset() {
+
+    // CTA Txt.
+    let ctaTxtWrapper = document.getElementById('ctaTxtWrapper');
+
+    // CTA Button.
+    let ctaBtnWrapper = document.getElementById('ctaBtnWrapper');
+
+
+    // Remove the fadeOut class from CTA Txt.
+    if (ctaTxtWrapper.classList.contains('fadeOut')) {
+        ctaTxtWrapper.classList.remove('fadeOut');
+    }
+
+    // Remove the fadeOut class from the CTA Button.
+    if (ctaBtnWrapper.classList.contains('fadeOut')) {
+        ctaBtnWrapper.classList.remove('fadeOut');
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*******************************************************************************
 *
 * Using JS to create typewriter animation effect.
@@ -171,9 +220,9 @@ function showFormMobile() {
 
 
 /*******************************************************************************
- * After the user types their email,
- * the send button appears below the text entry field, to the right.
- ******************************************************************************/
+* After the user types their email,
+* the send button appears below the text entry field, to the right.
+******************************************************************************/
 function userTypeEmail() {
     let txtEntryFieldWrapper = document.getElementById('txtEntryFieldWrapper');
     let txtEntryField = document.getElementById('txtEntryField');
@@ -189,7 +238,7 @@ function userTypeEmail() {
 
             // Add send button when users type nothing.
             sendBtn.classList.add('sendBtn');
-            
+
         } else {
             txtEntryFieldWrapper.classList.remove('txtEntryFieldWrapper');
             txtEntryField.classList.remove('txtEntryField');
@@ -232,7 +281,7 @@ emailForm.addEventListener('submit', function() {
 
 
 /*------------------------------------------------------------------------------
-                            Animation calls
+Animation calls
 ------------------------------------------------------------------------------*/
 
 // Number 2 or number 6
@@ -241,8 +290,15 @@ txtAppear();
 
 
 /*
-            Handle for changing between big and mobile screen.
+Handle for changing between big and mobile screen.
 ------------------------------------------------------------------------------*/
+
+
+// -----------------------------------------------------------------------------
+// Initially
+// -----------------------------------------------------------------------------
+
+
 // Number 3 or number 7
 let windowInnerWidth = window.innerWidth;
 if (windowInnerWidth > 480) {
@@ -260,75 +316,40 @@ if (windowInnerWidth > 480) {
 
 
 // -----------------------------------------------------------------------------
-// window.resize callback functions.
+// Functions will work on window resize.
 // -----------------------------------------------------------------------------
-// Number 3 or number 7
-function showOrHideBtn() {
-    windowInnerWidth = window.innerWidth;
 
-    if (windowInnerWidth > 480) {
-        showBtn();
-        console.log('Resize Desktop '  + windowInnerWidth);
-    } else {
-        hideBtn();
-        console.log('Resize Mobile ' + windowInnerWidth);
-    }
-}
-
-// Number 4
-function showFormBasedOnScreenSize() {
-    windowInnerWidth = window.innerWidth;
-
-    if (windowInnerWidth > 480) {
-        showForm();
-    } else {
-        showFormMobile();
-    }
-}
-
-
-// Number 5
-function userTypeEmailBasedOnScreenSize() {
-    windowInnerWidth = window.innerWidth;
-
-    if (windowInnerWidth > 480) {
-        userTypeEmail();
-    }
-}
-
-
-// Debouncing.
-// Function will only be called once the resizing is “complete.”
-let timeOut = false;
+let resetTimeOut = false;
 window.addEventListener('resize', function() {
     // Clear the time out.
-    clearTimeout(timeOut);
+    clearTimeout(resetTimeOut);
 
     // Start timing for event "completion".
-    timeOut = setTimeout(showOrHideBtn, 250);
-});
+    resetTimeOut = setTimeout(function() {
+        // window.resize callback functions.
+        // Debouncing.
+        // Functions will only be called once the resizing is “complete.”
+        windowInnerWidth = window.innerWidth;
+        if (windowInnerWidth > 480) {
+            console.log("Reset!");
+            reset();
 
+            console.log('Resize Desktop '  + windowInnerWidth);
+            showBtn();
 
-// Debouncing.
-// Function will only be called once the resizing is “complete.”
-let timeOut2 = false;
-window.addEventListener('resize', function() {
-    // Clear the time out.
-    clearTimeout(timeOut2);
+            console.log('Show form desktop!');
+            showForm();
 
-    // Start timing for event "completion".
-    timeOut2 = setTimeout(showFormBasedOnScreenSize, 250);
-});
+            userTypeEmail();
 
+        } else {
 
+            console.log('Resize Mobile ' + windowInnerWidth);
+            hideBtn();
 
-// Debouncing.
-// Function will only be called once the resizing is “complete.”
-let timeOut3 = false;
-window.addEventListener('resize', function() {
-    // Clear the time out.
-    clearTimeout(timeOut3);
+            console.log('Show form mobile!');
+            showFormMobile();
 
-    // Start timing for event "completion".
-    timeOut3 = setTimeout(userTypeEmailBasedOnScreenSize, 250);
+        }
+    }, 250);
 });

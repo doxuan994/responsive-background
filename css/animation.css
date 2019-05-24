@@ -192,5 +192,5 @@ The CTA button also fades out.
     /* OnClick of the CTA button and form will show. */
     .emailFormMobile    { display: block; }
 
-    .sendBtnInitMobile { display: block;}
+    .sendBtnInitMobile  { display: block;}
 }
