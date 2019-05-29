@@ -26,13 +26,30 @@ html, body {
 
 .logo {
     position: absolute;
-}
-
-.logo {
-    width: 4em;
-
     top: 1em;
     left: 1em;
+    width: 4em;
+}
+
+.cloud2 {
+    position: absolute;
+    top: 5em;
+    left: 1em;
+}
+
+.cloud4 {
+    position: absolute;
+    left: 15em;
+}
+
+.cloud21 {
+    position: absolute;
+    left: 40em;
+}
+
+.cloud3 {
+    position: absolute;
+    left: 65em;
 }
 
 .robot {
@@ -42,13 +59,8 @@ html, body {
     transform: translate(-50%);
 }
 
-.fullrobo {
-    bottom: 25%;
-}
-
-.flyRobo {
-    bottom: 50%;
-}
+.fullrobo { bottom: 25%; }
+.flyRobo  { bottom: 50%; }
 
 
 
@@ -66,10 +78,10 @@ Mobile Landscape
 
 @media only screen and (max-width: 820px) and (max-height: 420px) and  (orientation: landscape) {
     .logo {
-        width: 2em;
-
         top: 0.5em;
         left: 0.5em;
+
+        width: 2em;
     }
 }
 
@@ -83,10 +95,6 @@ Mobile Portrait
 ------------------------------------------------------------------------------*/
 
 @media only screen and (max-width: 480px) and (orientation: portrait) {
-    .site {
-        background-image: url("../images/MobileBackground.svg");
-    }
-    .skyline {
-        display: block;
-    }
+    .site       { background-image: url("../images/MobileBackground.svg"); }
+    .skyline    { display: block; }
 }
