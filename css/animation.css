@@ -20,7 +20,7 @@ textarea:focus, input:focus {
 /*
                                     Styling
 ------------------------------------------------------------------------------*/
-#ctaTxtWrapper {
+#ctaTxtWrapper, #txtIn6 {
     position: absolute;
     bottom: 15%;
 
@@ -43,25 +43,19 @@ textarea:focus, input:focus {
     justify-content: center;
 }
 
-#txtIn6 {
-    position: absolute;
-    bottom: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-}
+
 
 /*
 Baby Children
 ----------------------------------------------------------------------------- */
 #ctaBtn {
-    background-color: #7F1BCE;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8em;
+    font-weight: bold;
     color: white;
     border: 0px;
     border-radius: 50px;
-    padding: 0.7em 2em;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1em;
-    font-weight: bold;
+    padding: 0.7em 2.2em;
 }
 
 /* The rectangle background with a round border at the corner. */
@@ -99,8 +93,8 @@ Baby baby Children
 ----------------------------------------------------------------------------- */
 
 @media only screen and (max-width: 820px) and (max-height: 420px) and  (orientation: landscape) {
-    #ctaTxtWrapper { bottom: 18%; }
-    #ctaBtnWrapper { bottom: 3%; }
+    #ctaTxtWrapper, #txtIn6 { bottom: 18%; }
+    #ctaBtnWrapper          { bottom: 3%; }
 }
 
 /*
@@ -124,8 +118,8 @@ The Rectangle & input is shorter and the SEND button is shown.
                             Mobile Portrait
 ------------------------------------------------------------------------------*/
 @media only screen and (max-width: 480px) and (orientation: portrait) {
-    #ctaTxtWrapper { bottom: 18%; }
-    #txtEntryField { margin-left: 20px; }
+    #ctaTxtWrapper, #txtIn6 { bottom: 18%; }
+    #txtEntryField          { margin-left: 20px; }
 
 
     /*
@@ -172,16 +166,14 @@ The CTA button also fades out.
     }
 }
 
-.ctaBtnAfter {
-    display: block;
-    background-color: #108AF3;
-}
+
 
 
 
 /* Button animates to view 0.25s after CTA text animation is complete. */
 .ctaBtnInit     { display: none; }
-.ctaBtn         { display: block; }
+.ctaBtn         { display: block; background-color: #7F1BCE; }
+.ctaBtnAfter    { display: block; background-color: #108AF3; }
 
 
 /* OnClick of the CTA button and form will show. */

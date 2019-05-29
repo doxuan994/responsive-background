@@ -6,60 +6,6 @@
 
 
 
-// If users change from landscape to portrait and
-// then portrait to landscape.
-// Reset all the effect again.
-function reset() {
-
-    // CTA Txt.
-    let ctaTxtWrapper   = document.getElementById('ctaTxtWrapper');
-
-    // Text in number 6.
-    let txtIn6          = document.getElementById('txtIn6');
-
-    // CTA Button.
-    let ctaBtnWrapper   = document.getElementById('ctaBtnWrapper');
-
-
-    // Remove the fadeOut class from CTA Txt.
-    if (ctaTxtWrapper.classList.contains('fadeOut')) {
-        ctaTxtWrapper.classList.remove('fadeOut');
-    }
-
-    // Remove the fadeOut class from text in number 6.
-    if (txtIn6.classList.contains('fadeOut')) {
-        txtIn6.classList.remove('fadeOut');
-    }
-
-    // Remove the fadeOut class from the CTA Button.
-    if (ctaBtnWrapper.classList.contains('fadeOut')) {
-        ctaBtnWrapper.classList.remove('fadeOut');
-    }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*******************************************************************************
 *
 * Using JS to create typewriter animation effect.
@@ -154,6 +100,7 @@ function displayCtaBtnBeforeSubmitEmail() {
     console.log('Added ctaBtn');
     ctaBtn.classList.add('ctaBtn');
 }
+
 function displayCtaBtnAfterSubmitEmail() {
     // Number 7
     // About 1s after the text in 6 appears,
@@ -161,6 +108,7 @@ function displayCtaBtnAfterSubmitEmail() {
 
     let ctaBtn = document.getElementById('ctaBtn');
     ctaBtn.innerText = 'Re-send form';
+    ctaBtn.classList.remove('ctaBtn');
     ctaBtn.classList.add('ctaBtnAfter');
 }
 
@@ -200,8 +148,6 @@ function showForm() {
     let ctaBtnWrapper   = document.getElementById('ctaBtnWrapper');
     let emailForm       = document.getElementById('emailForm');
 
-
-
     // Initially, form are not shown, so show it for the first time When
     // users on click CTA button.
     ctaBtnWrapper.addEventListener('click', function() {
@@ -212,11 +158,8 @@ function showForm() {
         // then text in number 6 will be removed instead of CTA text.
         txtIn6.classList.add('fadeOut');
 
-
         // Add fade out class to CTA button.
         ctaBtnWrapper.classList.add('fadeOut');
-
-
 
         // Show form in desktop styling and remove the form class for mobile.
         emailForm.classList.add('emailForm');
