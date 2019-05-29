@@ -145,10 +145,6 @@ function showCtaTxt() {
 * Button animates to view 0.25s after CTA text animation is complete.
 *
 *******************************************************************************/
-
-
-
-
 function displayCtaBtnBeforeSubmitEmail() {
     // Number 3
     // Animated CTA button below CTA text.
@@ -169,7 +165,7 @@ function displayCtaBtnAfterSubmitEmail() {
 }
 
 
-// Show CTA button only on desktop screen.
+// Show CTA button on the desktop screen and on the mobile screen.
 function showCtaBtn() {
     if (getCookie('sent') >= 1) {
         setTimeout(displayCtaBtnAfterSubmitEmail, 4600);
@@ -178,10 +174,11 @@ function showCtaBtn() {
     }
 }
 
-// Hide CTA button on the mobile screen.
+
+// Hide CTA button
 function hideCtaBtn() {
     let ctaBtn = document.getElementById('ctaBtn');
-    console.log('Remove ctaBtn');
+    console.log('Removed ctaBtn');
     ctaBtn.classList.remove('ctaBtn');
 }
 
@@ -222,27 +219,10 @@ function showForm() {
 
 
         // Show form in desktop styling and remove the form class for mobile.
-        emailForm.classList.remove('emailFormMobile');
         emailForm.classList.add('emailForm');
 
     }, false);
 }
-
-
-/*------------------------------------------------------------------------------
-Show form on mobile screen.
-Form appears without clicking on the CTA button.
-
-Also, remove the form styling on desktop and add styling for mobile screen.
-------------------------------------------------------------------------------*/
-function showFormMobile() {
-    let emailForm   = document.getElementById('emailForm');
-    let sendBtn     = document.getElementById('sendBtn');
-
-    emailForm.classList.remove('emailForm');
-    emailForm.classList.add('emailFormMobile');
-}
-
 
 
 
@@ -303,7 +283,6 @@ function userTypeEmail() {
 *                          JavaScript FUNCTION CALLS
 *
 *******************************************************************************/
-
 // Submit form handling.
 let emailForm = document.getElementById('emailForm');
 emailForm.addEventListener('submit', function() {
@@ -331,73 +310,14 @@ emailForm.addEventListener('submit', function() {
 
                             FUNCTION CALLS
 *******************************************************************************/
-
 // Number 2 or number 6
 showCtaTxt();
 
-
-
-/*------------------------------------------------------------------------------
-
-            Handle for changing between big and mobile screen.
-
-------------------------------------------------------------------------------*/
-
-
-// -----------------------------------------------------------------------------
-// Initially
-// -----------------------------------------------------------------------------
-
-
 // Number 3 or number 7
-let windowInnerWidth = window.innerWidth;
-if (windowInnerWidth > 480) {
-    showCtaBtn();
-    showForm();
-    userTypeEmail();
+showCtaBtn();
 
-    console.log('Init Desktop ' + windowInnerWidth);
-} else {
-    hideCtaBtn();
-    showFormMobile();
-    console.log('Init Mobile ' + windowInnerWidth);
-}
+// Number 4 -- show form
+showForm();
 
-
-
-// -----------------------------------------------------------------------------
-// Functions will be called again on window resize.
-// -----------------------------------------------------------------------------
-
-let resetTimeOut = false;
-window.addEventListener('resize', function() {
-    // Clear the time out.
-    clearTimeout(resetTimeOut);
-
-    // Start timing for event "completion".
-    resetTimeOut = setTimeout(function() {
-        // The window.resize callback function.
-        // Debouncing.
-        // The function will only be called once the resizing is “complete.”
-        windowInnerWidth = window.innerWidth;
-        if (windowInnerWidth > 480) {
-            console.log("Reset!");
-            reset();
-
-            console.log('Resize Desktop '  + windowInnerWidth);
-            showCtaBtn();
-
-            console.log('Show form desktop!');
-            showForm();
-
-            userTypeEmail();
-
-        } else {
-            console.log('Resize Mobile ' + windowInnerWidth);
-            hideCtaBtn();
-
-            console.log('Show form mobile!');
-            showFormMobile();
-        }
-    }, 250);
-});
+// Number 5 -- the send button appears
+userTypeEmail();
